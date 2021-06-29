@@ -1,0 +1,325 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+.authorize {
+    background: url("../img/631.jpg");
+    background-size: cover;
+    background-position: center left;
+}
+
+.authorize1 {
+    background: url("../img/StudentsLoginbg.jpg");
+    background-size: cover;
+    background-position: center left;
+}
+
+.authorize2 {
+    background: url("../img/TutorSignInPagebg.jpg");
+    background-size: cover;
+    background-position: center left;
+}
+
+.authorize3 {
+    background: url("../img/StudentSignUpbg.jpg");
+    background-size: contain;
+    background-position: center left;
+}
+
+.authorize4 {
+    background: url("../img/TutorSignUpbg.jpg");
+    background-size: cover;
+    background-position: center left;
+}
+
+.btnn {
+    background-color: DodgerBlue; /* Blue background */
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    padding: 12px 16px; /* Some padding */
+    font-size: 16px; /* Set a font size */
+    cursor: pointer; /* Mouse pointer on hover */
+}
+
+    /* Darker background on mouse-over */
+    .btnn:hover {
+        background-color: RoyalBlue;
+    }
+
+.bg-img {
+    background: url("../img/LoginBg.jpg");
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+    .bg-img:after {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.3);
+    }
+
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 999;
+    text-align: center;
+    padding: 60px 32px;
+    width: 370px;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: -1px 4px 28px 0px rgba(0, 0, 0, 0.75);
+}
+
+    .content header {
+        color: white;
+        font-size: 33px;
+        font-weight: 600;
+        margin: 0 0 35px 0;
+        font-family: "Montserrat", sans-serif;
+    }
+
+.field {
+    position: relative;
+    height: 45px;
+    width: 100%;
+    display: flex;
+    background: rgba(255, 255, 255, 0.94);
+}
+
+    .field span {
+        color: #222;
+        width: 40px;
+        line-height: 45px;
+    }
+
+    .field input {
+        height: 100%;
+        width: 100%;
+        background: transparent;
+        border: none;
+        outline: none;
+        color: black;
+        font-size: 16px;
+        font-family: "Poppins", sans-serif;
+    }
+
+.space {
+    margin-top: 16px;
+}
+
+.show {
+    position: absolute;
+    right: 13px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #222;
+    display: none;
+    cursor: pointer;
+    font-family: "Montserrat", sans-serif;
+}
+
+.pass-key:valid ~ .show {
+    display: block;
+}
+
+.pass {
+    text-align: left;
+    margin: 10px 0;
+}
+
+    .pass a {
+        color: white;
+        text-decoration: none;
+        font-family: "Poppins", sans-serif;
+    }
+
+    .pass:hover a {
+        text-decoration: underline;
+    }
+
+.field input[type="submit"] {
+    background: #3498db;
+    border: 1px solid #2691d9;
+    color: white;
+    font-size: 18px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: "Montserrat", sans-serif;
+}
+
+    .field input[type="submit"]:hover {
+        background: #2691d9;
+    }
+
+.login {
+    color: white;
+    margin: 20px 0;
+    font-family: "Poppins", sans-serif;
+}
+
+.links {
+    display: flex;
+    cursor: pointer;
+    color: white;
+    margin: 0 0 20px 0;
+}
+
+
+
+    .links i {
+        font-size: 17px;
+    }
+
+i span {
+    margin-left: 8px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+}
+
+.signup {
+    font-size: 15px;
+    color: white;
+    font-family: "Poppins", sans-serif;
+}
+
+    .signup a {
+        color: #3498db;
+        text-decoration: none;
+    }
+
+        .signup a:hover {
+            text-decoration: underline;
+        }
+
+input::-moz-placeholder { /*  Firefox */
+    color: dimgrey;
+    opacity: 1; /* Firefox */
+}
+
+input::-webkit-input-placeholder { /* Chrome */
+    color: dimgrey;
+    opacity: 1;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: dimgrey;
+}
+
+:-ms-input-placeholder { /* Microsoft Edge */
+    color: dimgrey;
+}
+
+
+/*///////////////////////////////////////*/
+
+body {
+    background-color: #2F3242;
+}
+
+svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -250px;
+    margin-left: -400px;
+}
+
+.message-box {
+    height: 200px;
+    width: 380px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: 50px;
+    color: #FFF;
+    font-family: Roboto;
+    font-weight: 300;
+}
+
+    .message-box h1 {
+        font-size: 60px;
+        line-height: 46px;
+        margin-bottom: 40px;
+    }
+
+.buttons-con .action-link-wrap {
+    margin-top: 40px;
+}
+
+    .buttons-con .action-link-wrap a {
+        background: #68c950;
+        padding: 8px 25px;
+        border-radius: 4px;
+        color: #FFF;
+        font-weight: bold;
+        font-size: 14px;
+        transition: all 0.3s linear;
+        cursor: pointer;
+        text-decoration: none;
+        margin-right: 10px
+    }
+
+        .buttons-con .action-link-wrap a:hover {
+            background: #5A5C6C;
+            color: #fff;
+        }
+
+#Polygon-1, #Polygon-2, #Polygon-3, #Polygon-4, #Polygon-4, #Polygon-5 {
+    animation: float 1s infinite ease-in-out alternate;
+}
+
+#Polygon-2 {
+    animation-delay: .2s;
+}
+
+#Polygon-3 {
+    animation-delay: .4s;
+}
+
+#Polygon-4 {
+    animation-delay: .6s;
+}
+
+#Polygon-5 {
+    animation-delay: .8s;
+}
+
+@keyframes float {
+    100% {
+        transform: translateY(20px);
+    }
+}
+
+@media (max-width: 450px) {
+    svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -250px;
+        margin-left: -190px;
+    }
+
+    .message-box {
+        top: 50%;
+        left: 50%;
+        margin-top: -100px;
+        margin-left: -190px;
+        text-align: center;
+    }
+}
+
+/*//////////////////////////////////////////////////////////////*/
+

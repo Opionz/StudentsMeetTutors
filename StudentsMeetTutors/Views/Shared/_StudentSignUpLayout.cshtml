@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <title>@ViewData["Title"] Students Meet Tutors</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/customcss.css" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+</head>
+<body class="authorize3">
+    <header style="color: #00adef !important" ;>
+        <nav class="navbar justify-content-between" style="height: 50px ; background-color:#00adef ">
+            <img src="/img/logo.jpg" style="height: 60px" ; />
+            <form class="form-inline" method="post" asp-controller="Home" asp-action="Logout" style="">
+                <button class="btn btn-secondary my-2 my-sm-0" id="Logout" type="submit">Logout</button>
+            </form>
+        </nav>
+    </header>
+    <div class="">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div style="position: center center; color:blueviolet" class="container">
+            &copy; @DateTime.Now.Year - Students meet Tutors Powered by Convenant University
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script asp-append-version="true" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    @RenderSection("Scripts", false)
+</body>
+</html>
