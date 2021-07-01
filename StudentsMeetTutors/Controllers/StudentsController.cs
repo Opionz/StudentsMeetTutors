@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using StudentsMeetTutors.Data;
 using StudentsMeetTutors.Models;
 using StudentsMeetTutors.Requets;
@@ -87,7 +88,7 @@ namespace StudentsMeetTutors.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var tutor = _context.Tutors.Where(x => x.Course == "Computer Science").ToList();
+            var tutor = _context.Tutors.Where(x => x.Course == "CSC 421").ToList();
             return View(tutor);
         }
     }
