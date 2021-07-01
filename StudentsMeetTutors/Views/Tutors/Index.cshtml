@@ -1,0 +1,44 @@
+﻿@model IEnumerable<StudentsMeetTutors.Models.StudentRecord>
+
+
+<br />
+<br />
+<br />
+
+<h4 style="color:azure; background-color:coral; text-align:center"> Welcome, Well done on your role as a Tutor, below are the details of the next attendees of your the next tutorial session at the Facaulty hall by 5:00pm </h4>
+
+@{
+    int i = 0;
+}
+<div class="form-group justify-content-center" style="display:flex">
+    <div class="">
+
+    </div>
+    <div class="col-md-4 ">
+        <table  class="table-dark table-sm table-hover table-bordered table-responsive" cellpadding="0" cellspacing="0" border="1">
+            <thead>
+                <tr>
+                    <th>S/N</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Username</th>
+                    <th> Course</th>
+                </tr>
+            </thead>
+            @foreach (var student in Model)
+            {
+                <tbody>
+                    <tr>
+                        <td>@(++i)</td>
+                        <td>@student.FirstName</td>
+                        <td>@student.LastName</td>
+                        <td>@student.Username</td>
+                        <td>@student.Course</td>
+                    </tr>
+                </tbody>
+             }
+
+        </table>
+    </div>
+    
+</div>

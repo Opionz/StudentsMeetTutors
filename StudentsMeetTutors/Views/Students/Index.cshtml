@@ -1,0 +1,22 @@
+﻿@model IEnumerable<StudentsMeetTutors.Models.TutorRecord>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+<div class="form-group justify-content-center" style="display:flex">
+    <div class="col-md-4 ">
+        <div>
+            @foreach (var item in Model)
+            {
+                <h4 style="color:azure; background-color:coral; text-align:center"> Welcome,  @item.FirstName  @item.LastName would be your Tutor in the next @item.Course tutorial session at the Facaulty hall by 5:00pm. Please be punctual </h4>
+            }
+
+        </div>
+    </div>
+</div>

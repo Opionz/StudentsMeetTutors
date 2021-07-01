@@ -1,5 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using StudentsMeetTutors.Models;
+using StudentsMeetTutors.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +12,7 @@ namespace StudentsMeetTutors.Data
 {
     public class StudentsMeetTutorsContext : DbContext
     {
-        public StudentsMeetTutorsContext() : base()
+        public StudentsMeetTutorsContext(DbContextOptions<StudentsMeetTutorsContext> options) : base()
         {
 
         }

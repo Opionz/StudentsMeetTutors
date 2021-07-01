@@ -14,8 +14,8 @@
         <div class="card-body">
             <h5 class="card-title text-center">Student Section</h5>
             <p class="card-text text-center">Login or Sign Up as a Student </p>
-            <a href='@*@Url.Action("Index", "CPC")*@' class="btn btn-primary">Login</a>
-            <a style="position:relative; left:150px" href='@*@Url.Action("Index", "CPC")*@' class="btn btn-primary">Sign Up</a>
+            <a href='@Url.Action("StudentLogin", "Students")' class="btn btn-primary">Login</a>
+            <a style="position:relative; left:150px" href='@Url.Action("StudentSignUp", "Students")' class="btn btn-primary">Sign Up</a>
         </div>
     </div>
     <div class="col-sm-2"></div>
@@ -24,8 +24,8 @@
         <div class="card-body">
             <h5 class="card-title text-center">Tutor Champion Section</h5>
             <p class="card-text text-center">Login or Sign Up as a Tutor </p>
-            <a href='@*@Url.Action("CPCETBDesk", "CPC")*@' class="btn btn-primary">Login</a>
-            <a style="position:relative; left:150px" href='@*@Url.Action("Index", "CPC")*@' class="btn btn-primary">Sign Up</a>
+            <a href='@Url.Action("TutorLogin", "Tutors")' class="btn btn-primary">Login</a>
+            <a style="position:relative; left:150px" href='@Url.Action("TutorSignUp", "Tutors")' class="btn btn-primary">Sign Up</a>
         </div>
     </div>
 </div>
