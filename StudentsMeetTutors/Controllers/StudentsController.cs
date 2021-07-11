@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using StudentsMeetTutors.Data;
@@ -20,6 +21,12 @@ namespace StudentsMeetTutors.Controllers
             _context = context;
         }
 
+        [TempData]
+        public string Style { get; set; }
+
+        [TempData]
+        public string Course { get; set; }
+
         [HttpGet]
         public IActionResult StudentLogin()
         {
@@ -31,21 +38,23 @@ namespace StudentsMeetTutors.Controllers
         {
             if (ModelState.IsValid)
             {
-                var result = _context.Students.FirstOrDefault(e => e.Username == loginRequest.Username && e.Password == loginRequest.Password);
+                var result = _context.Students.FirstOrDefault(e => e.Username == loginRequest.Username && e.Password == loginRequest.Password );
+                Style = result.LearningStyle;
+                Course = result.Course;
                 TempData["Username"] = result.Username;
                 if (result != null)
                 {
-                    return RedirectToAction("Index", "Students");
+                    return RedirectToAction("SelectTutor", "Students");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Invalid login attempt");
+                    ModelState.AddModelError("Error", "Invalid login attempt");
                     return View(loginRequest);
                 }  
 
             }
 
-            ModelState.AddModelError("", "Invalid login attempt");
+            ModelState.AddModelError("Error", "Invalid login attempt");
             return View(loginRequest);
         }
 
@@ -69,7 +78,9 @@ namespace StudentsMeetTutors.Controllers
                     FirstName = signupRequest.FirstName,
                     LastName = signupRequest.LastName,
                     Email = signupRequest.Email,
-                    Course = signupRequest.Course
+                    Course = signupRequest.Course,
+                    LearningStyle = signupRequest.LearningStyle
+                    
                 };
 
                 _context.Add(user);
@@ -85,10 +96,21 @@ namespace StudentsMeetTutors.Controllers
             return View("StudentLogin");
             
         }
+
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult SelectTutor()
         {
-            var tutor = _context.Tutors.Where(x => x.Course == "CSC 421").ToList();
+            var course = Course;
+            var style = Style;
+            var tutors = _context.Tutors.Where(x => x.Course == Course && x.TeachingStyle == style).ToList();
+            return View(tutors);
+        }
+
+        [HttpGet]
+        public IActionResult Index(int Id)
+        {
+            var course = Course;
+            var tutor = _context.Tutors.FirstOrDefault(x => x.ID == Id);
             return View(tutor);
         }
     }

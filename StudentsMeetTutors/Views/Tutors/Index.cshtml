@@ -1,5 +1,10 @@
 ﻿@model IEnumerable<StudentsMeetTutors.Models.StudentRecord>
 
+@{
+    
+    Layout = "_SelectTutors";
+}
+<
 
 <br />
 <br />
@@ -15,30 +20,43 @@
 
     </div>
     <div class="col-md-4 ">
-        <table  class="table-dark table-sm table-hover table-bordered table-responsive" cellpadding="0" cellspacing="0" border="1">
-            <thead>
-                <tr>
-                    <th>S/N</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Username</th>
-                    <th> Course</th>
-                </tr>
-            </thead>
-            @foreach (var student in Model)
-            {
-                <tbody>
+        @if (Model.Count() > 0)
+        {
+            <table class=" table-sm table-hover table table-responsive" cellpadding="0" cellspacing="0" border="0">
+                <thead style="color: white; background-color: black;">
                     <tr>
-                        <td>@(++i)</td>
-                        <td>@student.FirstName</td>
-                        <td>@student.LastName</td>
-                        <td>@student.Username</td>
-                        <td>@student.Course</td>
+                        <th>S/N</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Username</th>
+                        <th> Course</th>
                     </tr>
-                </tbody>
-             }
+                </thead>
+                @foreach (var student in Model)
+                {
+                    <tbody style="background-color: white; color: black">
+                        <tr>
+                            <td>@(++i)</td>
+                            <td>@student.FirstName</td>
+                            <td>@student.LastName</td>
+                            <td>@student.Username</td>
+                            <td>@student.Course</td>
+                        </tr>
+                    </tbody>
+                }
 
-        </table>
+            </table>
+        }
+        else
+        {
+            <br />
+            <br />
+            <br />
+            <h4 style="color: azure;">
+                No student(s) are currently enrolled in this class. Please check back later.
+            </h4>
+        }
+
     </div>
-    
+
 </div>

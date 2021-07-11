@@ -43,7 +43,6 @@
                     <label for="Course">Course</label>
                     <select asp-for="Course" id="inputState" class="form-control">
                         <option selected>Choose...</option>
-                        <option>...</option>
                         <option value="CSC 421">CSC 421</option>
                         <option value="CSC 425">CSC 425</option>
                         <option value="CSC 427">CSC 427</option>
@@ -57,7 +56,19 @@
                     <input asp-for="LastName" type="text" class="form-control" id="LastName">
                 </div>
             </div>
-
+            <div class="form-group col-md-6">
+                <label for="inputAddress2">Learning Style</label>
+                <select asp-for="TeachingStyle" id="TeachingStyle" class="form-control">
+                    <option selected>Choose...</option>
+                    <option>...</option>
+                    <option value="One On One">One on One</option>
+                    <option value="Group less than 10">Group less than 10</option>
+                    <option value="Group less than 20">Group less than 20</option>
+                    <option value="General attendance">General attendance</option>
+                    <option value="A Lot of Questions during Session">A Lot of Questions during Session</option>
+                    <option value="A very patient and interactive session">A very patient and interactive session</option>
+                </select>
+            </div>
             <button type="submit" class="btn btn-primary">Sign Up</button>
         </form>
     </div>

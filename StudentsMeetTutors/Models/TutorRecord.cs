@@ -25,7 +25,8 @@ namespace StudentsMeetTutors.Models
         public string Email { get; set; }
         [Required]
         public string Course { get; set; }
-        
+        [Required]
+        public string TeachingStyle { get; set; }
         public ICollection<StudentRecord> Student { get; set; }
     }
 }

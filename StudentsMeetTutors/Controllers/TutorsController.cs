@@ -19,6 +19,13 @@ namespace StudentsMeetTutors.Controllers
             _context = context;
         }
 
+        [TempData]
+        public string Style { get; set; }
+
+        [TempData]
+        public string Course { get; set; }
+
+
         [HttpGet]
         public IActionResult TutorLogin()
         {
@@ -32,6 +39,8 @@ namespace StudentsMeetTutors.Controllers
             {
                 var result = _context.Tutors.FirstOrDefault(e => e.Username == loginRequest.Username && e.Password == loginRequest.Password);
                 TempData["Username"] = result.Username;
+                Style = result.TeachingStyle;
+                Course = result.Course;
                 if (result != null)
                 {
                     return RedirectToAction("Index", "Tutors");
@@ -62,7 +71,6 @@ namespace StudentsMeetTutors.Controllers
                 int i = 0;
                 var user = new TutorRecord
                 {
-                    //ID = Guid.NewGuid().ToString(),
                     ID = i++,
                     Username = signupRequest.Username,
                     Password = signupRequest.Password,
@@ -70,7 +78,8 @@ namespace StudentsMeetTutors.Controllers
                     FirstName = signupRequest.FirstName,
                     LastName = signupRequest.LastName,
                     Email = signupRequest.Email,
-                    Course = signupRequest.Course
+                    Course = signupRequest.Course,
+                    TeachingStyle = signupRequest.TeachingStyle
                     
                 };
                 _context.Add(user);
@@ -91,7 +100,7 @@ namespace StudentsMeetTutors.Controllers
         public IActionResult Index()
         {
             
-            var student = _context.Students.ToList();
+            var student = _context.Students.Where(e => e.Course == Course &&  e.LearningStyle == Style).ToList();
 
             return View(student);
         }
