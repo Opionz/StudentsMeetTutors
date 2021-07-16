@@ -27,6 +27,16 @@ namespace StudentsMeetTutors.Models
         public string Course { get; set; }
         [Required]
         public string TeachingStyle { get; set; }
+        [Required]
+        public string ClassLength { get; set; }
+        [Required]
+        public string PatienceLevel { get; set; }
+        [Required]
+        public string TeachingLength { get; set; }
+        [Required]
+        public string Time { get; set; }
+        [Required]
+        public string Location { get; set; }
         public ICollection<StudentRecord> Student { get; set; }
     }
 }

@@ -43,14 +43,13 @@ namespace StudentsMeetTutors.Controllers
                 Course = result.Course;
                 if (result != null)
                 {
-                    return RedirectToAction("Index", "Tutors");
+                    return RedirectToAction("SelectPreference", "Tutors");
                 }
                 else
                 {
                     ModelState.AddModelError("", "Invalid login attempt");
                     return View(loginRequest);
-                }
-
+                } 
             }
 
             ModelState.AddModelError("", "Invalid login attempt");
@@ -79,7 +78,13 @@ namespace StudentsMeetTutors.Controllers
                     LastName = signupRequest.LastName,
                     Email = signupRequest.Email,
                     Course = signupRequest.Course,
-                    TeachingStyle = signupRequest.TeachingStyle
+                    TeachingStyle = signupRequest.TeachingStyle,
+                    ClassLength = signupRequest.ClassLength,
+                    Location = signupRequest.Location,
+                    PatienceLevel = signupRequest.PatienceLevel,
+                    TeachingLength = signupRequest.TeachingLength,
+                    Time = signupRequest.Time
+                    
                     
                 };
                 _context.Add(user);
@@ -97,12 +102,26 @@ namespace StudentsMeetTutors.Controllers
         }
 
         [HttpGet]
+        public IActionResult SelectPreference()
+        {
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult SelectPreference(SelectRequest request)
+        {
+            var studentList = _context.Students.Where(x => x.Course == request.Course && x.LearningStyle == request.TeachingStyle && x.ClassLength == request.ClassLength && x.AssimilationRate == request.PatienceLevel && x.Time == request.Time && x.AttentionSpan == request.TeachingLength && x.Location == request.Location).ToList();
+            return RedirectToAction("Index", "Tutors", studentList);
+        }
+
+        [HttpGet]
         public IActionResult Index()
         {
             
-            var student = _context.Students.Where(e => e.Course == Course &&  e.LearningStyle == Style).ToList();
+            //var student = _context.Students.Where(e => e.Course == Course &&  e.LearningStyle == Style).ToList();
 
-            return View(student);
+            return View();
         }
     }
 }

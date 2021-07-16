@@ -37,12 +37,12 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputCity">First Name</label>
-                    <input asp-for="FirstName" type="text" class="form-control" id="FirstName">
+                    <input asp-for="FirstName" type="text" class="form-control" id="FirstName" placeholder="First Name">
                 </div>
                 <div class="form-group col-md-4">
                     <label for="Course">Course</label>
                     <select asp-for="Course" id="inputState" class="form-control">
-                        <option selected>Choose...</option>
+                        <option selected>Course</option>
                         <option value="CSC 421">CSC 421</option>
                         <option value="CSC 425">CSC 425</option>
                         <option value="CSC 427">CSC 427</option>
@@ -53,23 +53,75 @@
                 </div>
                 <div class="form-group col-md-2">
                     <label for="inputZip">LastName</label>
-                    <input asp-for="LastName" type="text" class="form-control" id="LastName">
+                    <input asp-for="LastName" type="text" class="form-control" id="LastName" placeholder="Last Name">
                 </div>
             </div>
             <div class="form-group col-md-6">
                 <label for="inputAddress2">Learning Style</label>
                 <select asp-for="TeachingStyle" id="TeachingStyle" class="form-control">
-                    <option selected>Choose...</option>
-                    <option>...</option>
-                    <option value="One On One">One on One</option>
-                    <option value="Group less than 10">Group less than 10</option>
-                    <option value="Group less than 20">Group less than 20</option>
-                    <option value="General attendance">General attendance</option>
-                    <option value="A Lot of Questions during Session">A Lot of Questions during Session</option>
-                    <option value="A very patient and interactive session">A very patient and interactive session</option>
+                    <option selected>Teaching Style ...</option>
+                    <option value="Audio">Audio</option>
+                    <option value="Video">Video</option>
+                    <option value="Physical meeting">Physical meeting</option>
                 </select>
             </div>
+
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="ClassLength" class="control-label"></label>
+                    <select asp-for="ClassLength" id="inputState" class="form-control">
+                        <option selected>Class Length...</option>
+                        @*<option value="0">0</option>*@
+                        <option value="1-5">1-5</option>
+                        <option value="5-10">5-10</option>
+                        <option value="10-15">10-15</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="PatienceLevel" class="control-label"></label>
+                    <select asp-for="PatienceLevel" id="inputState" class="form-control">
+                        <option selected>Assimilation Rate...</option>
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                    </select>
+                    <span asp-validation-for="PatienceLevel" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="TeachingLength" class="control-label"></label>
+                <select asp-for="TeachingLength" id="inputState" class="form-control">
+                    <option selected>Attention Span... </option>
+                    <option value="10-30 minutes">10-30 minutes</option>
+                    <option value="30-60 minutes">30-60 minutes</option>
+                    <option value="60+ minutes">60+ minutes</option>
+                </select>
+                <span asp-validation-for="TeachingLength" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputAddress2">Time</label>
+                <select asp-for="Time" id="inputState" class="form-control">
+                    <option selected>Time...</option>
+                    <option value="Morning Tutorial">Morning Tutorial</option>
+                    <option value="Evening Tutorial">Evening Tutorial</option>
+                </select>
+                <span asp-validation-for="Time" class="text-danger"></span>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputCity">First Name</label>
+                    <select asp-for="Location" id="inputState" class="form-control">
+                        <option selected>Location...</option>
+                        <option value="Remote">Remote</option>
+                        <option value="Class">Class</option>
+                    </select>
+                    <span asp-validation-for="Location" class="text-danger"></span>
+                </div>
+            </div>
+            <br />  
             <button type="submit" class="btn btn-primary">Sign Up</button>
+            <br />  
         </form>
     </div>
 

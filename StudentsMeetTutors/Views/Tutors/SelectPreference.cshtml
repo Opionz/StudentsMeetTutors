@@ -1,0 +1,107 @@
+﻿@model StudentsMeetTutors.Models.StudentRecord
+
+@{
+    ViewData["Title"] = "SelectPreference";
+    Layout = "_SelectTutors";
+}
+
+
+
+<hr />
+<div class="row mx-auto">
+    <h1 class="align-content-center" style="color: cadetblue; position: relative; left: 150px "> Kindly fill in your learning preference before you proceed </h1>
+    <div class="col-md-4 align-content-center mx-auto">
+
+        <form asp-action="SelectPreference">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Course" class="control-label"></label>
+                @*<input asp-for="Course" class="form-control" />*@
+                <select asp-for="Course" id="inputState" class="form-control">
+                    <option selected>Choose...</option>
+                    <option value="CSC 421">CSC 421</option>
+                    <option value="CSC 425">CSC 425</option>
+                    <option value="CSC 427">CSC 427</option>
+                    <option value="CSC 423">CSC 423</option>
+                    <option value="CSC 429">CSC 429</option>
+                    <option value="CSC 431">CSC 431</option>
+                </select>
+                <span asp-validation-for="Course" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LearningStyle" class="control-label"></label>
+                <select asp-for="LearningStyle" id="inputState" class="form-control">
+                    <option selected>Choose...</option>
+                    <option value="Audio">Audio</option>
+                    <option value="Video">Video</option>
+                    <option value="Physical meeting">Physical meeting</option>
+                </select>
+                <span asp-validation-for="LearningStyle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClassLength" class="control-label"></label>
+                @*<input asp-for="ClassLength" class="form-control" />*@
+                <select asp-for="ClassLength" id="inputState" class="form-control">
+                    <option selected>Choose...</option>
+                    <option>...</option>
+                    <option value="0">0</option>
+                    <option value="1-5">1-5</option>
+                    <option value="5-10">5-10</option>
+                    <option value="10-15">10-15</option>
+                </select>
+                <span asp-validation-for="ClassLength" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AssimilationRate" class="control-label"></label>
+                @*<input asp-for="PatienceLevel" class="form-control" />*@
+                <select asp-for="AssimilationRate" id="inputState" class="form-control">
+                    <option selected>Choose...</option>
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                </select>
+                <span asp-validation-for="AssimilationRate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AttentionSpan" class="control-label"></label>
+                @*<input asp-for="TeachingLength" class="form-control" />*@
+                <select asp-for="AttentionSpan" id="inputState" class="form-control">
+                    <option selected>Choose...</option>
+                    <option value="10-30 minutes">10-30 minutes</option>
+                    <option value="30-60 minutes">30-60 minutes</option>
+                    <option value="60+ minutes">60+ minutes</option>
+                </select>
+                <span asp-validation-for="AttentionSpan" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Time" class="control-label"></label>
+                @*<input asp-for="Time" class="form-control" />*@
+                <select asp-for="Time" id="inputState" class="form-control">
+                    <option selected>Choose...</option>
+                    <option value="Morning Tutorial">Morning Tutorial</option>
+                    <option value="Evening Tutorial">Evening Tutorial</option>
+                </select>
+                <span asp-validation-for="Time" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Location" class="control-label"></label>
+                @*<input asp-for="Location" class="form-control" />*@
+                <select asp-for="Location" id="inputState" class="form-control">
+                    <option selected>Choose...</option>
+                    <option value="Remote">Remote</option>
+                    <option value="Class">Class</option>
+                </select>
+                <span asp-validation-for="Location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

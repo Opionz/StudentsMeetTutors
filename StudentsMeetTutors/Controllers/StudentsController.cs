@@ -39,12 +39,12 @@ namespace StudentsMeetTutors.Controllers
             if (ModelState.IsValid)
             {
                 var result = _context.Students.FirstOrDefault(e => e.Username == loginRequest.Username && e.Password == loginRequest.Password );
-                Style = result.LearningStyle;
-                Course = result.Course;
+                //Style = result.LearningStyle;
+                ////Course = result.Course;
                 TempData["Username"] = result.Username;
                 if (result != null)
                 {
-                    return RedirectToAction("SelectTutor", "Students");
+                    return RedirectToAction("SelectPreference", "Students");
                 }
                 else
                 {
@@ -79,8 +79,12 @@ namespace StudentsMeetTutors.Controllers
                     LastName = signupRequest.LastName,
                     Email = signupRequest.Email,
                     Course = signupRequest.Course,
-                    LearningStyle = signupRequest.LearningStyle
-                    
+                    LearningStyle = signupRequest.LearningStyle,
+                    ClassLength = signupRequest.ClassLength,
+                    AssimilationRate = signupRequest.AssimilationRate,
+                    AttentionSpan = signupRequest.AttentionSpan,
+                    Time = signupRequest.Time,
+                    Location = signupRequest.Location
                 };
 
                 _context.Add(user);
@@ -96,14 +100,27 @@ namespace StudentsMeetTutors.Controllers
             return View("StudentLogin");
             
         }
+        [HttpGet]
+        public IActionResult SelectPreference()
+        {
+            
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult SelectPreference(SelectStudentRequest request)
+        {
+            var tutorList = _context.Tutors.Where(x => x.Course == request.Course && x.TeachingStyle == request.LearningStyle && x.ClassLength == request.ClassLength && x.PatienceLevel == request.AssimilationRate && x.Time == request.Time && x.TeachingLength == request.AttentionSpan && x.Location == request.Location).ToList();
+            return RedirectToAction("SelectTutor", "Students", tutorList);
+        }
 
         [HttpGet]
-        public IActionResult SelectTutor()
+        public IActionResult SelectTutor(SelectStudentRequest request)
         {
-            var course = Course;
-            var style = Style;
-            var tutors = _context.Tutors.Where(x => x.Course == Course && x.TeachingStyle == style).ToList();
-            return View(tutors);
+            //var course = Course;
+            //var style = Style;
+            //var tutors = _context.Tutors.Where(x => x.Course == Course && x.TeachingStyle == style).ToList();
+            return View();
         }
 
         [HttpGet]

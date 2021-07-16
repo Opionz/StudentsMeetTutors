@@ -11,8 +11,5 @@ namespace StudentsMeetTutors.Requets
 
         public string Password { get; set; }
 
-        public string LearningStyle { get; set; }
-
-        public string TeachingStyle { get; set; }
     }
 }

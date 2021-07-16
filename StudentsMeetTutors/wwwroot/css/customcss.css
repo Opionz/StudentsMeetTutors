@@ -6,31 +6,31 @@
 }
 
 .authorize {
-    background: url("../img/631.jpg");
+    /*background: url("../img/631.jpg");*/
     background-size: cover;
     background-position: center left;
 }
 
 .authorize1 {
-    background: url("../img/StudentsLoginbg.jpg");
+   /* background: url("../img/StudentsLoginbg.jpg");*/
     background-size: cover;
     background-position: center left;
 }
 
 .authorize2 {
-    background: url("../img/TutorSignInPagebg.jpg");
+    /*background: url("../img/TutorSignInPagebg.jpg");*/
     background-size: cover;
     background-position: center left;
 }
 
 .authorize3 {
-    background: url("../img/StudentSignUpbg.jpg");
+   /* background: url("../img/StudentSignUpbg.jpg");*/
     background-size: contain;
     background-position: center left;
 }
 
 .authorize4 {
-    background: url("../img/TutorSignUpbg.jpg");
+    /*background: url("../img/TutorSignUpbg.jpg");*/
     background-size: cover;
     background-position: center left;
 }
@@ -50,7 +50,7 @@
     }
 
 .bg-img {
-    background: url("../img/LoginBg.jpg");
+    /*background: url("../img/LoginBg.jpg");*/
     height: 100vh;
     background-size: cover;
     background-position: center;
@@ -225,7 +225,7 @@ input::-webkit-input-placeholder { /* Chrome */
 /*///////////////////////////////////////*/
 
 body {
-    background-color: #2F3242;
+    background-color: azure;
 }
 
 svg {
