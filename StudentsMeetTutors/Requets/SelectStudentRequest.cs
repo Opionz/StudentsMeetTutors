@@ -10,13 +10,13 @@ namespace StudentsMeetTutors.Requets
     {
         public string Course { get; set; }
         [Required]
-        public string TeachingStyle { get; set; }
+        public string LearningStyle { get; set; }
         [Required]
         public string ClassLength { get; set; }
         [Required]
-        public string PatienceLevel { get; set; }
+        public string AssimilationRate { get; set; }
         [Required]
-        public string TeachingLength { get; set; }
+        public string AttentionSpan { get; set; }
         [Required]
         public string Time { get; set; }
         [Required]

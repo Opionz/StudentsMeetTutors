@@ -1,4 +1,4 @@
-﻿@model StudentsMeetTutors.Models.TutorRecord
+﻿@model StudentsMeetTutors.Requets.SelectStudentRequest
 
 @{
     ViewData["Title"] = "SelectPreference";
@@ -44,7 +44,6 @@
                 @*<input asp-for="ClassLength" class="form-control" />*@
                 <select asp-for="ClassLength" id="inputState" class="form-control">
                     <option selected>Choose...</option>
-                    <option>...</option>
                     <option value="0">0</option>
                     <option value="1-5">1-5</option>
                     <option value="5-10">5-10</option>
@@ -95,7 +94,7 @@
                 <span asp-validation-for="Location" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Continue" class="btn btn-primary" />
             </div>
         </form>
     </div>
