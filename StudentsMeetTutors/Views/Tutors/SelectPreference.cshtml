@@ -6,7 +6,7 @@
 }
 
 
-
+ 
 <hr />
 <div class="row mx-auto">
     <h1 class="align-content-center" style="color: cadetblue; position: relative; left: 150px "> Kindly fill in your learning preference before you proceed </h1>
@@ -17,7 +17,6 @@
 
             <div class="form-group">
                 <label asp-for="Course" class="control-label"></label>
-                @*<input asp-for="Course" class="form-control" />*@
                 <select asp-for="Course" id="inputState" class="form-control">
                     <option selected>Choose...</option>
                     <option value="CSC 421">CSC 421</option>
@@ -41,10 +40,8 @@
             </div>
             <div class="form-group">
                 <label asp-for="ClassLength" class="control-label"></label>
-                @*<input asp-for="ClassLength" class="form-control" />*@
                 <select asp-for="ClassLength" id="inputState" class="form-control">
                     <option selected>Choose...</option>
-                    <option>...</option>
                     <option value="0">0</option>
                     <option value="1-5">1-5</option>
                     <option value="5-10">5-10</option>
@@ -54,7 +51,6 @@
             </div>
             <div class="form-group">
                 <label asp-for="AssimilationRate" class="control-label"></label>
-                @*<input asp-for="PatienceLevel" class="form-control" />*@
                 <select asp-for="AssimilationRate" id="inputState" class="form-control">
                     <option selected>Choose...</option>
                     <option value="Low">Low</option>
@@ -65,7 +61,6 @@
             </div>
             <div class="form-group">
                 <label asp-for="AttentionSpan" class="control-label"></label>
-                @*<input asp-for="TeachingLength" class="form-control" />*@
                 <select asp-for="AttentionSpan" id="inputState" class="form-control">
                     <option selected>Choose...</option>
                     <option value="10-30 minutes">10-30 minutes</option>
@@ -76,7 +71,6 @@
             </div>
             <div class="form-group">
                 <label asp-for="Time" class="control-label"></label>
-                @*<input asp-for="Time" class="form-control" />*@
                 <select asp-for="Time" id="inputState" class="form-control">
                     <option selected>Choose...</option>
                     <option value="Morning Tutorial">Morning Tutorial</option>
@@ -86,7 +80,6 @@
             </div>
             <div class="form-group">
                 <label asp-for="Location" class="control-label"></label>
-                @*<input asp-for="Location" class="form-control" />*@
                 <select asp-for="Location" id="inputState" class="form-control">
                     <option selected>Choose...</option>
                     <option value="Remote">Remote</option>
@@ -97,6 +90,9 @@
             <div class="form-group">
                 <input type="submit" value="Continue" class="btn btn-primary" />
             </div>
+
+
+            
         </form>
     </div>
 </div>

@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StudentsMeetTutors.Data;
 
 namespace StudentsMeetTutors.Migrations
 {
     [DbContext(typeof(StudentsMeetTutorsContext))]
-    partial class StudentsMeetTutorsContextModelSnapshot : ModelSnapshot
+    [Migration("20210721014429_UpdateTutors")]
+    partial class UpdateTutors
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -142,6 +144,9 @@ namespace StudentsMeetTutors.Migrations
 
                     b.Property<string>("PatienceLevel")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Review")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TeachingLength")

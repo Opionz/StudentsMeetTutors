@@ -5,6 +5,10 @@
     user-select: none;
 }
 
+.ratingStar:hover {
+    background-color: yellow;
+}
+
 .authorize {
     /*background: url("../img/631.jpg");*/
     background-size: cover;

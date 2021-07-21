@@ -35,7 +35,7 @@ namespace StudentsMeetTutors.Controllers
         }
         public IActionResult Logout()
         {
-            return View();
+            return Index();
         }
     }
 }

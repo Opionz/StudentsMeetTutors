@@ -31,8 +31,12 @@
                             Teaching Style
                         </th>
                         <th>
+                            Tutor Rating
+                        </th>
+                        <th>
                             Action
                         </th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -58,6 +62,17 @@
                                 @item.TeachingStyle
                             </td>
                             <td>
+                                <div class="form-group">
+                                    <span class="text-warning">
+                                        <i class="ratingStar fas fa-star"></i>
+                                        <i class="ratingStar fas fa-star"></i>
+                                        <i class="ratingStar fas fa-star"></i>
+                                        <i class="ratingStar fas fa-star"></i>
+                                        <i class="ratingStar fas fa-star"></i>
+                                    </span>
+                                </div>
+                            </td>
+                            <td>
                                 <a class="btn-success btn-block" asp-controller="Students" asp-action="Index" asp-route-id="@item.ID">Select Tutor</a>
                             </td>
                         </tr>
@@ -73,5 +88,16 @@
         }
     </section>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".ratingStar").hover(function () {
+           /* $(".ratingStar").addClass("far").removeClass("fas");*/
+
+            //$(this).addClass("fas").removeClass("far");
+            //$(this).prevAll(".ratingStar").addClass("fas").removeClass("far");
+        });
+    });
+</script>
 
 

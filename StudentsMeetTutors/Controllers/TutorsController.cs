@@ -130,7 +130,12 @@ namespace StudentsMeetTutors.Controllers
             string Lastname = tutorPreference.LastName;
             string Password = tutorPreference.Password;
             string Email = tutorPreference.Email;
-
+            TempData["ID"] = ID;
+            TempData["MatricNumber"] = MatricNumber;
+            TempData["FirstName"] = FirstName;
+            TempData["LastName"] = Lastname;
+            TempData["Password"] = Password;
+            TempData["Email"] = Email;
             TutorRecord preference = new TutorRecord();
 
                 preference.ID = ID;
@@ -148,13 +153,66 @@ namespace StudentsMeetTutors.Controllers
                 preference.TeachingLength = AttentionSpan;
                 preference.Time = Time;
 
+            
 
             _context.Attach(preference);
             _context.Update(preference).Property(p => p.Username).IsModified = true;
             _context.SaveChanges();
 
-          //  var studentList = _context.Students.Where(x => x.Course == Course && x.LearningStyle == LearningStyle && x.ClassLength == ClassLength && x.AssimilationRate == AssimilationRate && x.Time == Time && x.AttentionSpan == AttentionSpan && x.Location == Location).ToList();
-            
+            TempData["Location"] = preference.Location;
+            //  var studentList = _context.Students.Where(x => x.Course == Course && x.LearningStyle == LearningStyle && x.ClassLength == ClassLength && x.AssimilationRate == AssimilationRate && x.Time == Time && x.AttentionSpan == AttentionSpan && x.Location == Location).ToList();
+
+            return RedirectToAction("AppointSchedule", "Tutors");
+        }
+
+        [HttpGet]
+        public IActionResult AppointSchedule(string Location)
+        {
+            Location = TempData["Location"].ToString();
+            TempData["Location"] = Location;
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AppointSchedule(TutorRecord schedule)
+        {
+            TutorRecord tutorData = new TutorRecord();
+            tutorData.Username = TempData["Username"].ToString();
+            //tutorData.Location = TempData["Location"].ToString();
+
+
+            TutorRecord tutorPreference = _context.Tutors.AsNoTracking().FirstOrDefault(x => x.Username == tutorData.Username);
+
+            tutorData.ID = tutorPreference.ID;
+
+            tutorData.MatricNumber = TempData["MatricNumber"].ToString();
+            tutorData.FirstName = TempData["FirstName"].ToString();
+            tutorData.LastName = TempData["LastName"].ToString();
+            tutorData.Password = TempData["Password"].ToString();
+            tutorData.Email = TempData["Email"].ToString();
+            tutorData.Course = TempData["Course"].ToString();
+            tutorData.TeachingStyle = TempData["LearningStyle"].ToString();
+            tutorData.ClassLength = TempData["ClassLength"].ToString();
+            tutorData.PatienceLevel = TempData["AssimilationRate"].ToString();
+           // tutorData.Location = TempData["Location"].ToString();
+            tutorData.TeachingLength = TempData["AttentionSpan"].ToString();
+            tutorData.Time = TempData["Time"].ToString();
+            tutorData.Location = schedule.Location;
+            tutorData.TutorRating = schedule.TutorRating ;
+            tutorData.LectureTime = schedule.LectureTime ;
+            tutorData.LectureDate = schedule.LectureDate ;
+            tutorData.Venue =  schedule.Venue ;
+            //tutorData.ID = (int)TempData["Username"];
+            TempData["Location"] = tutorData.Location  ;
+            //schedule.TutorRating = TempData["TutorRating"].ToString();
+            TempData["LectureTime"] = schedule.LectureTime  ;
+            TempData["LectureDate"] = schedule.LectureDate ;
+            TempData["Venue"] = schedule.Venue ;
+
+            _context.Attach(tutorData);
+            _context.Update(tutorData).Property(p => p.Username).IsModified = true;
+            _context.SaveChanges();
+
             return RedirectToAction("Index", "Tutors");
         }
 
@@ -162,16 +220,43 @@ namespace StudentsMeetTutors.Controllers
         public IActionResult Index()
         {
             string Username = TempData["Username"].ToString();
+            var tutorPreference = _context.Tutors.AsNoTracking().FirstOrDefault(x => x.Username == Username);
+
+            int ID = tutorPreference.ID;
+            //string Username = TempData["Username"].ToString();
+            string MatricNumber = TempData["MatricNumber"].ToString();
+            string FirstName = TempData["FirstName"].ToString();
+            string Lastname = TempData["LastName"].ToString();
+            string Password = TempData["Password"].ToString();
+            string Email = TempData["Email"].ToString();
             string Course = TempData["Course"].ToString();
-            string LearningStyle = TempData["LearningStyle"].ToString();
+            string TeachingStyle = TempData["LearningStyle"].ToString();
             string ClassLength = TempData["ClassLength"].ToString();
+            string PatienceLevel = TempData["AssimilationRate"].ToString();
             string Location = TempData["Location"].ToString();
-            string AssimilationRate = TempData["AssimilationRate"].ToString();
-            string AttentionSpan = TempData["AttentionSpan"].ToString();
+            string TeachingLength = TempData["AttentionSpan"].ToString();
             string Time = TempData["Time"].ToString();
+            //string TutorRating = TempData["TutorRating"].ToString();
+            string LectureTime = TempData["LectureTime"].ToString();
+            string LectureDate = TempData["LectureDate"].ToString();
+            string Venue = TempData["Venue"].ToString();
 
 
-            var studentList = _context.Students.Where(x => x.Course == Course && x.LearningStyle == LearningStyle && x.ClassLength == ClassLength && x.AssimilationRate == AssimilationRate && x.Time == Time && x.AttentionSpan == AttentionSpan && x.Location == Location).ToList();
+            //TempData["TutorRating"].ToString();
+            TempData["LectureTime"].ToString();
+            TempData["LectureDate"].ToString();
+            TempData["Venue"].ToString();
+            //string Username = TempData["Username"].ToString();
+            //string Course = TempData["Course"].ToString();
+            //string LearningStyle = TempData["LearningStyle"].ToString();
+            //string ClassLength = TempData["ClassLength"].ToString();
+            //string Location = TempData["Location"].ToString();
+            //string AssimilationRate = TempData["AssimilationRate"].ToString();
+            //string AttentionSpan = TempData["AttentionSpan"].ToString();
+            //string Time = TempData["Time"].ToString();
+
+
+            var studentList = _context.Students.Where(x => x.Course == Course && x.LearningStyle == TeachingStyle && x.ClassLength == ClassLength && x.AssimilationRate == PatienceLevel && x.Time == Time && x.AttentionSpan == TeachingLength && x.Location == Location).ToList();
 
             return View(studentList);
         }

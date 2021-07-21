@@ -3,13 +3,6 @@
 @{
     Layout = "_SelectTutors";
 }
-
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
 <br />
 <br />
 <br />
@@ -19,5 +12,46 @@
         <div>
             <h4 style="color:dimgrey; background-color:coral; text-align:center"> Welcome,  @Model.FirstName  @Model.LastName would be your Tutor in the next @Model.Course tutorial, based on your Learning Preference : "@Model.TeachingStyle", Your tutorial session will be at the Facaulty hall. Please be punctual </h4>
         </div>
+
+        <div class="border">
+            <div class="border align-content-center mx-auto">
+                <br />
+                Kindly confirm if your Tutor's schedule suits you
+                <br />
+                <br />
+                Lecture Time : @Model.LectureTime
+                <br />
+                <br />
+                Lecture Date : @Model.LectureDate
+                <br />
+                <br />
+                Lecture Venue : @Model.Venue
+                <br />
+                <br />
+                <button id="Button" class="btn btn-info"> Ok </button>
+                <br />
+                <br />
+            </div>
+        </div>
+
+        <br />
+        <br />
+        <div class="border" id="EmailDiv">
+            <div class="border">
+                Now that you are all set, Kindly confirm your attendance with your Tutor by clicking <a href="mailto: @Model.Email">here</a> to send a mail.
+            </div>
+        </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#EmailDiv").hide();
+
+        $("button").click(function () {
+            /*document.getElementById("Button").disabled = true;*/
+            $("#Button").hide();
+            $("#EmailDiv").show();
+        });
+    });
+</script>

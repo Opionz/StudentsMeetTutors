@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
-
 namespace StudentsMeetTutors.Models
 {
     public class TutorRecord
@@ -38,5 +37,11 @@ namespace StudentsMeetTutors.Models
         [Required]
         public string Location { get; set; }
         public ICollection<StudentRecord> Student { get; set; }
+#nullable enable
+        public string? TutorRating { get; set; }
+        public string? LectureTime { get; set; }
+        public string? LectureDate { get; set; }
+        public string? Venue { get; set; }
+
     }
 }

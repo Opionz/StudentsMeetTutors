@@ -10,12 +10,18 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/css/customcss.css" />
+    <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <script asp-append-version="true" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  
 </head>
 <body class="">
     <header style="color: #00adef !important" ;>
         <nav class="navbar justify-content-between" style="height: 70px ; background-color:#00adef ">
             <img src="/img/logo.jpg" style="height: 60px" ; />
+            <form class="form-inline" method="post" asp-controller="Home" asp-action="Index" style="">
+            <button class="btn btn-secondary my-2 my-sm-0" id="Logout" type="submit">Logout</button>
+            </form>
         </nav>
     </header>
     <div class="">

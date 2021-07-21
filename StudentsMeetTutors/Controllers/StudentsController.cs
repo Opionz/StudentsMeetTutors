@@ -143,11 +143,11 @@ namespace StudentsMeetTutors.Controllers
                 
                 preference.ID = ID;
                 preference.Username = Username;
-            preference.MatricNumber = MatricNumber;
-            preference.FirstName = FirstName;
-            preference.LastName = Lastname;
-            preference.Password = Password;
-            preference.Email = Email;
+                preference.MatricNumber = MatricNumber;
+                preference.FirstName = FirstName;
+                preference.LastName = Lastname;
+                preference.Password = Password;
+                preference.Email = Email;
                 preference.Course = Course;
                 preference.LearningStyle = TeachingStyle;
                 preference.ClassLength = ClassLength;

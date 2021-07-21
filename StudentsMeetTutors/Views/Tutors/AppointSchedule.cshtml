@@ -1,0 +1,101 @@
+﻿@model StudentsMeetTutors.Models.TutorRecord
+
+@{
+    ViewData["Title"] = "AppointSchedule";
+    Layout = "_SelectTutors";
+}
+
+<h1>Create Lecture Schedule</h1>
+
+<h4>Set your appointment schedule for your students </h4>
+<hr />
+<div class="row mx-auto">
+    <div class="col-md-4 align-content-center mx-auto">
+        <form asp-action="AppointSchedule">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            @*<div class="form-group">
+            <label asp-for="TutorRating" class="control-label"></label>
+            <span asp-for="TutorRating" class="text-warning">
+                <i class="ratingStar fas fa-star"></i>
+                <i class="ratingStar far fa-star"></i>
+                <i class="ratingStar far fa-star"></i>
+                <i class="ratingStar far fa-star"></i>
+                <i class="ratingStar far fa-star"></i>
+            </span>
+        </div>*@
+            <div class="form-group">
+                <label asp-for="Location">Location</label>
+                <select asp-for="Location" id="inputState" class="form-control">
+                    <option selected>Location...</option>
+                    <option value="Remote">Remote</option>
+                    <option value="Class">Class</option>
+                </select>
+                <span asp-validation-for="Location" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="LectureTime" class="control-label"></label>
+                <select asp-for="LectureTime" id="inputState" class="form-control">
+                    <option selected>Select Time...</option>
+                    <option value="10am">10am</option>
+                    <option value="5pm">5pm</option>
+                    <option value="7pm">7pm</option>
+                </select>
+                <span asp-validation-for="LectureTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LectureDate" class="control-label"></label>
+                <select asp-for="LectureDate" id="inputState" class="form-control">
+                    <option selected>Lecture Date...</option>
+                    @*<option value="@DateTime.Now.ToString("MM/dd/yyyy")">DateTime.Now.ToString("MM/dd/yyyy")</option>*@
+                    <option value="@DateTime.Now.AddDays(1).ToString("MM/dd/yyyy")">@DateTime.Now.AddDays(1).ToString("MM/dd/yyyy")</option>
+                    <option value="@DateTime.Now.AddDays(2).ToString("MM/dd/yyyy")">@DateTime.Now.AddDays(2).ToString("MM/dd/yyyy")</option>
+                    <option value="@DateTime.Now.AddDays(3).ToString("MM/dd/yyyy")">@DateTime.Now.AddDays(3).ToString("MM/dd/yyyy")</option>
+                </select>
+                <span asp-validation-for="LectureDate" class="text-danger"></span>
+            </div>
+            @if (TempData["Location"].ToString() == "Class")
+            {
+                <div class="form-group">
+                    <label asp-for="Venue" class="control-label"></label>
+                    <select asp-for="Venue" id="inputState" class="form-control">
+                        <option selected>Venue...</option>
+                        <option value="Computer Science Faculty Lecture Theatre">Computer Science Faculty Lecture Theatre</option>
+                        <option value="CSC PGD Hall">CSC PGD Hall</option>
+                        <option value="Computer Science Lab">Computer Science Lab</option>
+                    </select>
+                    <span asp-validation-for="Venue" class="text-danger"></span>
+                </div>
+            }
+            else
+            {
+                <div class="form-group">
+                    <label asp-for="Venue" class="control-label"></label>
+                    <select asp-for="Venue" id="inputState" class="form-control">
+                        <option selected>Venue...</option>
+                        <option value="https://zoom.us/j/3525664199?pwd=SDBDdGc0b0lKTFdIRlRFSDk4Q3V2UT09">ZOOM</option>
+                    </select>
+                    <span asp-validation-for="Venue" class="text-danger"></span>
+                </div>
+            }
+
+            <div class="form-group">
+                <input type="submit" value="Submit Schedule" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script></script>
+<script type="text/javascript">
+    //$(document).ready(function () {
+    //    $(".ratingStar").hover(function () {
+    //        $(".ratingStar").addClass("far").removeClass("fas");
+
+    //        $(this).addClass("fas").removeClass("far");
+    //        $(this).prevAll(".ratingStar").addClass("fas").removeClass("far");
+    //    });
+    //});
+</script>
